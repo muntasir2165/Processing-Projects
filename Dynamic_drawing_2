@@ -1,0 +1,26 @@
+//Abstract dynamic drawing using numbers that simulates The Matrix(!).
+//The draw() method is called only once during the sketch.
+
+//global variables
+color[] palette = {#08A009}; //I could have defined my color in a 
+//simpler way but this is to satisfy the assignment requirements 
+
+//setup()
+void setup() {
+  size(800, 800);
+  background(#000000);
+  noLoop(); 
+}
+
+//draw()
+void draw() {
+    for (int x = 0; x < 800; x += 20) {
+      for (int y = 0; y < 800; y += 20) {
+        fill(palette[0]);
+        textSize(15);
+        textAlign(CENTER);
+        String number = ""+int(random(10));
+        text(number, x, y);
+      }
+    } 
+}
