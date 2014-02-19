@@ -1,0 +1,41 @@
+//Abstract dynamic drawing using ellipses, circles and rectangles. The
+//draw() method is called for the entire length of the sketch to 
+//create a truly dynamic drawing that changes repeatedly.
+
+//global variables
+float x;
+float y;
+color[] palette = {#FF530D, #E82C0C, #FF0000, #E80C7A,
+#FF0DFF, #FFB84B, #E844A1, #577CFF, #44E87A, #FFF6BB};
+
+//setup()
+void setup() {
+  size(800, 800);
+  background(#0A0101);
+}
+
+//draw()
+void draw() {
+    for (int counter = 0; counter < 50; counter++) {
+      //co-ordinates setup 
+      x = random(800);
+      y = random(800);
+      //fill, stroke, and strokeWeight setuo
+      noFill();
+      stroke(palette[int(random(10))]);
+      strokeWeight(random(5));
+      //ellipse parameters and drawing
+      float ellipseLength = random(20);
+      float ellipseWidth = random(10);
+      ellipse(x, y, ellipseLength, ellipseWidth);
+      //circle parameters and drawing
+      float circleRadius = random(10);
+      ellipse(x+random(10), y+random(20), circleRadius, circleRadius); 
+      //rectangle parameters and drawing
+      float rectLength = random(200);
+      float rectWidth = random(100);
+      rect(x+random(20), y+random(40), rectWidth, rectLength);  
+}
+//noLoop() can be uncommented. But where's the fun in that?  
+//noLoop(); 
+}
